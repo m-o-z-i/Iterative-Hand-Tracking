@@ -8,7 +8,7 @@
 #include "Tools/tools.h"
 
 // todo: delete
-#include "global.h"
+#include "globalsettings.h"
 
 class ImageFolder : public CaptureDevice {
 

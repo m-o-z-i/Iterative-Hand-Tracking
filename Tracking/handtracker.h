@@ -16,7 +16,7 @@
 #include "handmodel.h"
 
 // todo: delete
-#include "global.h"
+#include "globalsettings.h"
 
 
 class HandTracker

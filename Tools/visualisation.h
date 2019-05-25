@@ -16,6 +16,7 @@ void drawCCComponent(cv::Mat &img, const CC::Component& comp, const cv::Point2i 
 void drawComponent(cv::Mat &img, const std::shared_ptr<MSER::Region> &node, const cv::Point2i& pos = cv::Point2i(0,0), cv::Scalar const& color = cv::Scalar(255,255,0));
 
 void drawCluster(cv::Mat &img, const std::shared_ptr<MSERCluster> cluster, cv::Scalar const& color = cv::Scalar(255,255,0));
-void drawHands(cv::Mat &img, const std::vector<std::shared_ptr<Hand> >& hands, cv::Scalar color = cv::Scalar(255,255,0));
+void drawHands(cv::Mat &img, const std::vector<std::shared_ptr<Hand> >& hands, cv::Scalar color = cv::Scalar(255,255,0), bool rndcolor = false);
+void drawHand(cv::Mat& img, const std::shared_ptr<Hand >& hand, cv::Scalar color);
 
 #endif // VISUALISATION_H

@@ -69,7 +69,7 @@ ImageProcessingWindow::ImageProcessingWindow(QWidget *parent) :
     //setImageFolder("Data/Images/handsTogether");
     //setImageFolder("Data/Images/specialCase4");
     //setImageFolder("Data/Images/herausziehen");
-    setImageFolder("Data/Images/BachelorImages1");
+    setImageFolder("Data/Images/bachelorverteidigung");
 #else
     //setVideoFile("Data/Videos/SUR40/sur40.webm");
     setCameraDevice(CAM::GRASSHOPPER);
@@ -130,7 +130,7 @@ void ImageProcessingWindow::process()
 
     // update Filename
     if (mImageMode) {
-        mUI->labelImageName->setText(QString::fromStdString(Global::FILENAME));
+        mUI->labelImageName->setText(QString::fromStdString(GlobalSettings::FILENAME));
     } else {
         mUI->labelImageName->setText("");
     }
@@ -185,13 +185,13 @@ void ImageProcessingWindow::on_btnPauseResume_clicked()
         mQTimer->start();
         mPause = false;
 //        mProc.resume();
-        Global::PAUSE = false;
+        GlobalSettings::PAUSE = false;
         mUI->btnPauseResume->setText("&pause");
     } else{
         mQTimer->stop();
         mPause = true;
 //        mProc.pause();
-        Global::PAUSE = true;
+        GlobalSettings::PAUSE = true;
         mUI->btnPauseResume->setText("&resume");
     }
 }

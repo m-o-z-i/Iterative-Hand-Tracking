@@ -152,14 +152,14 @@ void ImageProcessing::process()
             drawCluster(mMSERImage, c, cv::Scalar(255, 0, 255));
         }
 
-        drawHands(mImageVis, mHands, cv::Scalar(0,255,0));
+        drawHands(mImageVis, mHands, cv::Scalar(0,255,0), true);
         mImages.push_back(mImageVis);
         mImages.push_back(mMSERImage);
         mImages.push_back(mCCImage);
     }
 
 
-    Global::NEXT = false;
+    GlobalSettings::NEXT = false;
 
     ++mIndex;
 }

@@ -296,8 +296,12 @@ void knFingerTracker(const std::vector<cv::Point2i>& currentPoints, const std::v
     cv::Mat cand_32f; candidates.convertTo(cand_32f, CV_32FC2);
     cv::Mat finger_32f; currentFingerPos.convertTo(finger_32f, CV_32FC2);
 
-    cv::flann::Index flann_index(finger_32f, cv::flann::LinearIndexParams());  // using 4 randomized kdtrees
-    flann_index.knnSearch(cand_32f, indexMat, distMat, 1, cv::flann::SearchParams(64) ); // maximum number of leafs checked
+    //std::cout << cand_32f.rows << "  " << cand_32f.cols << "  " << currentPoints.size() << "  " << candidatePoints.size() << std::endl;
+
+    if(candidatePoints.size() != 0 && currentPoints.size() != 0) {
+        cv::flann::Index flann_index(finger_32f, cv::flann::LinearIndexParams());  // using 4 randomized kdtrees
+        flann_index.knnSearch(cand_32f, indexMat, distMat, 1, cv::flann::SearchParams(64) ); // maximum number of leafs checked
+    }
 
     // index pointer (faster)
     int* indices_ptr = indexMat.ptr<int>(0);
@@ -334,8 +338,12 @@ void knCandidateTracker(const std::vector<cv::Point2i>& candidatePoints, const s
     cv::Mat current_32f; currents.convertTo(current_32f, CV_32FC2);
     cv::Mat cand_32f; candidateFingerPos.convertTo(cand_32f, CV_32FC2);
 
-    cv::flann::Index flann_index(cand_32f, cv::flann::LinearIndexParams());  // using 4 randomized kdtrees
-    flann_index.knnSearch(current_32f, indexMat, distMat, 1, cv::flann::SearchParams(64) ); // maximum number of leafs checked
+    //std::cout << cand_32f.rows << "  " << cand_32f.cols << "  " << currentPoints.size() << "  " << candidatePoints.size() << std::endl;
+
+    if(candidatePoints.size() != 0 && currentPoints.size() != 0) {
+        cv::flann::Index flann_index(cand_32f, cv::flann::LinearIndexParams());  // using 4 randomized kdtrees
+        flann_index.knnSearch(current_32f, indexMat, distMat, 1, cv::flann::SearchParams(64) ); // maximum number of leafs checked
+    }
 
     // index pointer (faster)
     int* indices_ptr = indexMat.ptr<int>(0);
@@ -562,6 +570,7 @@ void ICPTrackerRidgid(const std::vector<std::shared_ptr<Blob> >& currentBlobs, c
             cv::circle(img, candidates[i], 3, cv::Scalar(0,255,255));
         }
 #endif
+
         /************** find closest points ******************/
         std::vector<CorresPoints> cPts;
         if(candidateTracker) {

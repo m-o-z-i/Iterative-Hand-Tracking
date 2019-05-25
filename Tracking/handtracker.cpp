@@ -241,7 +241,9 @@ void HandTracker::updateHand(std::shared_ptr<Hand> hand, const std::shared_ptr<M
     ICPTrackerCombined(hand->mBlobs, cluster->mBlobs, cBlobs);
     //globalBlobTracker(hand->mBlobs, cluster->mBlobs, cBlobs, 3);
 
+    //std::cout<<"UPDATE HAND " << hand->mID << " (" << hand->mBlobs.size()<< " blobs and " << cluster->mBlobs.size() << "  candidates) -> " << cBlobs.size() <<" correspondances found."<< std::endl;
     for (const CorresPoints& corresBlobs : cBlobs){
+        //std::cout << "update finger: " << corresBlobs.mIDCurrent << " with " << corresBlobs.mIDCandidate << " (dist: " << corresBlobs.mDist << ")"<< std::endl;
         if (corresBlobs.mIDCurrent != -1 && corresBlobs.mDist < HandModel::HandSpeedMax &&
             !hand->mBlobs[corresBlobs.mIDCurrent]->mTracked &&
             !cluster->mBlobs[corresBlobs.mIDCandidate]->mTracked ) {
@@ -250,7 +252,6 @@ void HandTracker::updateHand(std::shared_ptr<Hand> hand, const std::shared_ptr<M
             addBlob(hand, cluster->mBlobs[corresBlobs.mIDCandidate]);
         }
     }
-
 
     if (hand->mBlobs.size() > 0) {
         // bounding box
@@ -327,7 +328,7 @@ void HandTracker::addBlob(std::shared_ptr<Hand> hand, std::shared_ptr<Blob> newB
 
 void HandTracker::addHand(std::vector<std::shared_ptr<Hand> >& hands, const std::shared_ptr<MSERCluster> cluster){
     std::shared_ptr<Hand> hand = std::make_shared<Hand>(cluster);
-
+    //std::cout<<"ADD HAND " << mHandIDs << " (" << hand->mBlobs.size()<< " blobs)" << std::endl;
     ++hand->mUpdateCount;
     hand->mMissCounter = 0;
     hand->mTracked = true;

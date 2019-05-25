@@ -3,7 +3,7 @@
 
 #include <string>
 
-struct Global
+struct GlobalSettings
 {
 static bool PAUSE;
 static bool NEXT;

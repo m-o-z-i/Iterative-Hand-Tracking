@@ -28,7 +28,7 @@
 
 
 // todo: delete
-#include "global.h"
+#include "globalsettings.h"
 
 namespace CAM {
     enum DEVICEFLAG {

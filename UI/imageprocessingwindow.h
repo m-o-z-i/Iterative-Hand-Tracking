@@ -15,7 +15,7 @@
 #include "createmaxwindow.h"
 
 // todo: delete
-#include "global.h"
+#include "globalsettings.h"
 
 namespace Ui {
 class ImageProcessingWindow;

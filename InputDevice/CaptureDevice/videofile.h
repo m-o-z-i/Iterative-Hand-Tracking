@@ -11,7 +11,7 @@
 #include "capturedevice.h"
 
 //ToDo delete:
-#include "global.h"
+#include "globalsettings.h"
 
 class VideoFile : public CaptureDevice {
 

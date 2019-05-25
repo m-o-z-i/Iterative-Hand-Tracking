@@ -23,7 +23,7 @@ const cv::Mat& ImageFolder::capture()
 
     std::string fileName = mImagePath + mImageNames[mIndex];
 
-    Global::FILENAME = mImageNames[mIndex];
+    GlobalSettings::FILENAME = mImageNames[mIndex];
 
     mImage = cv::imread(fileName, 0);
     if (!mPause){

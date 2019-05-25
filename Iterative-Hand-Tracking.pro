@@ -70,10 +70,10 @@ SOURCES += main.cpp \
     Tracking/trackingalgorithm.cpp \
     handmodel.cpp \
     Tools/config.cpp \
-    global.cpp \
     InputDevice/CaptureDevice/videofile.cpp \
     InputDevice/CaptureDevice/cameradevice.cpp \
-    Clustering/mserclustering.cpp
+    Clustering/mserclustering.cpp \
+    globalsettings.cpp
 
 HEADERS += \
     Network/Osc/MessageMappingOscPacketListener.h \
@@ -110,9 +110,9 @@ HEADERS += \
     UI/createmaxwindow.h \
     UI/imageprocessingwindow.h \
     blob.h \
-    global.h \
     hand.h \
-    handmodel.h
+    handmodel.h \
+    globalsettings.h
 
 FORMS += \
     UI/imageprocessingwindow.ui \
