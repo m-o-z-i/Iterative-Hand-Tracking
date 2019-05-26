@@ -2,7 +2,6 @@
 From dissociated moving points to robust input recognition: 
 hand and finger tracking on multi-touch surfaces based on diffuse illumination.
 
-## Bachelorthesis
 This software was developed for my bachelor thesis (http://moritz-loos.de/Projects/Iterative-Hand-Tracking/index.html).  
 
 ## Overview
