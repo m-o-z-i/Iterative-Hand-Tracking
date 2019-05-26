@@ -65,11 +65,7 @@ ImageProcessingWindow::ImageProcessingWindow(QWidget *parent) :
     // choose start device
     //***************************************************************//
 #if 1
-    //setImageFolder("Data/Images/Andre3");
-    //setImageFolder("Data/Images/handsTogether");
-    //setImageFolder("Data/Images/specialCase4");
-    //setImageFolder("Data/Images/herausziehen");
-    setImageFolder("Data/Images/bachelorverteidigung");
+    //setImageFolder("Data/Images/Example");
 #else
     //setVideoFile("Data/Videos/SUR40/sur40.webm");
     setCameraDevice(CAM::GRASSHOPPER);

@@ -1,9 +1,5 @@
 #include "handmodel.h"
 
-
-// all values has to be in pixel dimensions.
-// current are good for 600x400 images.
-
 std::string HandModel::mConfigPath("");
 
 float HandModel::PixelsIn1CM(5.767);
@@ -34,8 +30,6 @@ int       HandModel::HandRotationMax(10);
 
 int       HandModel::BlobSpeedMaxPerS(250);
 int       HandModel::BlobSpeedMax(20);
-
-/**** independent from resolution *****/
 
 // while wrong clustering...
 int       HandModel::H2H_DistanceMax(F2F_DistanceMax/3);
